@@ -21,7 +21,7 @@ class SiteplanSelection
             ->flatMap(fn ($menu) => collect([$menu])->concat($menu->children))
             ->filter(fn ($menu) => in_array($menu->route_name, self::ROUTES, true)
                 && \Illuminate\Support\Facades\Route::has($menu->route_name))
-            ->unique('route_name')->values();
+            ->unique('route_name')->sortBy('urutan')->values();
     }
 
     public static function load(array $relations): array
