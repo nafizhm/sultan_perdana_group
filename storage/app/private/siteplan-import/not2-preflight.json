@@ -1,0 +1,1068 @@
+{
+    "count": 85,
+    "total_paid": 668000000,
+    "duplicate_niks": {
+        "1807075110830005": [
+            "B-04 Angga Mahardika",
+            "H-11 Vera Hidayanti"
+        ],
+        "1872040205980002": [
+            "B-12 Ratih Dwi Zaningsih",
+            "H-18 Fadhlan Wafda"
+        ],
+        "3324117105010002": [
+            "B-13 Noni Hacintya",
+            "H-32 Adinda Septia Dewi"
+        ],
+        "1871040302910005": [
+            "C-38 Nur Hanifah",
+            "L-02 Adi Kurniawan"
+        ],
+        "1871011309970004": [
+            "D-01 Nety Olivia Colin. NG",
+            "L-15 Tulus Maria Manala"
+        ],
+        "1801223420780003": [
+            "D-14 Muhsya Julian",
+            "D-39 Siti Humairoh",
+            "E-02 Tria Yuliarni"
+        ],
+        "1807081411770001": [
+            "D-15 Pramana",
+            "D-18 Doria Tangga Mustika"
+        ],
+        "1872046706940001": [
+            "D-36 Angel Luis Endricke",
+            "L-01 Lenny Suratina"
+        ],
+        "1871104812770001": [
+            "G-03 Johan Andesta",
+            "G-07 Tungki Adiputra Sastranegara"
+        ],
+        "1871106901040002": [
+            "G-06 Dandy",
+            "G-26 Femy Andini"
+        ],
+        "1871205109690001": [
+            "H-01 Doria Tangga Mustika",
+            "K-01 Laila Noer Indah Sari"
+        ],
+        "1801180201770001": [
+            "H-19 Hendra",
+            "L-09 Paulus Hartono"
+        ],
+        "1871031809040003": [
+            "H-33 Lika Fajar Alief",
+            "L-05 Mulyono"
+        ]
+    },
+    "duplicate_names": {
+        "doria tangga mustika": [
+            "D-18 Doria Tangga Mustika",
+            "H-01 Doria Tangga Mustika"
+        ],
+        "dandy": [
+            "G-05 Dandy",
+            "G-06 Dandy",
+            "G-08 Dandy"
+        ]
+    },
+    "duplicate_phones": {
+        "085377329300": [
+            "C-38 Nur Hanifah",
+            "L-02 Adi Kurniawan"
+        ],
+        "082179472176": [
+            "D-03 Rizky Pratama",
+            "D-31 M Daniell"
+        ],
+        "0898207611206": [
+            "D-04 Irene Meisuzantis",
+            "D-07 Avnidha Lestari"
+        ],
+        "085215072420": [
+            "D-14 Muhsya Julian",
+            "D-39 Siti Humairoh",
+            "E-02 Tria Yuliarni"
+        ],
+        "081274188666": [
+            "D-17 Dhony Gunawan",
+            "D-18 Doria Tangga Mustika"
+        ],
+        "089920405547": [
+            "D-36 Angel Luis Endricke",
+            "L-01 Lenny Suratina"
+        ],
+        "081278723342": [
+            "D-41 Dian Maria Fauzi",
+            "D-42 Peni Wahyudi"
+        ],
+        "0895600688788": [
+            "G-05 Dandy",
+            "G-06 Dandy"
+        ],
+        "089870213567": [
+            "H-01 Doria Tangga Mustika",
+            "K-01 Laila Noer Indah Sari"
+        ],
+        "081373018820": [
+            "H-19 Hendra",
+            "L-09 Paulus Hartono"
+        ],
+        "081273421100": [
+            "H-33 Lika Fajar Alief",
+            "L-05 Mulyono"
+        ]
+    },
+    "issues": [
+        {
+            "unit": "H-10 Enjang Fathurohman",
+            "existing": [
+                "Enjang"
+            ]
+        },
+        {
+            "unit": "L-09 Paulus Hartono",
+            "existing": [
+                "Akbar"
+            ]
+        }
+    ],
+    "rows": [
+        {
+            "row": 4,
+            "code": "A-01",
+            "name": "Deka Sanjaya",
+            "nik": "1871036286320001",
+            "phone": "085228846729",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 5,
+            "code": "A-03",
+            "name": "Septian Dwi Cahyo",
+            "nik": "1871076001980009",
+            "phone": "082178101243",
+            "price": "166,000,000",
+            "paid": "  8,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 6,
+            "code": "A-06",
+            "name": "Nova lina Lestari",
+            "nik": "1801064909830003",
+            "phone": "081369083899",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 7,
+            "code": "A-07",
+            "name": "Rury Puspa Lestari",
+            "nik": "1871010506930008",
+            "phone": "082143768900",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 8,
+            "code": "A-08",
+            "name": "Doni Irawan",
+            "nik": "1871092303960007",
+            "phone": "081272905555",
+            "price": "166,000,000",
+            "paid": "  8,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 9,
+            "code": "A-10",
+            "name": "Bayu Ilhamsyah",
+            "nik": "1871134107950004",
+            "phone": "08117234689",
+            "price": "166,000,000",
+            "paid": "  8,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 10,
+            "code": "A-12",
+            "name": "Epita Wulan Dari",
+            "nik": "1609065006020002",
+            "phone": "08176669865",
+            "price": "166,000,000",
+            "paid": "  8,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 11,
+            "code": "A-19",
+            "name": "Aulia Rahmawati",
+            "nik": "1871043011990007",
+            "phone": "089531986678",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 12,
+            "code": "B-02",
+            "name": "Dede Maulana Yusuf",
+            "nik": "1871014104800009",
+            "phone": "08991109111",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 13,
+            "code": "B-04",
+            "name": "Angga Mahardika",
+            "nik": "1807075110830005",
+            "phone": "082374796479",
+            "price": "166,000,000",
+            "paid": "  10,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 14,
+            "code": "B-05",
+            "name": "Wijaya Kesuma Hadi",
+            "nik": "1802162903800001",
+            "phone": "081272405980",
+            "price": "166,000,000",
+            "paid": "  8,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 15,
+            "code": "B-08",
+            "name": "Fuji Astuti",
+            "nik": "1871097009970002",
+            "phone": "0898711009651",
+            "price": "166,000,000",
+            "paid": "  8,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 16,
+            "code": "B-10",
+            "name": "Ayu Brillianita Zulyus",
+            "nik": "1803025403970004",
+            "phone": "0899204315422",
+            "price": "166,000,000",
+            "paid": "  8,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 17,
+            "code": "B-12",
+            "name": "Ratih Dwi Zaningsih",
+            "nik": "1872040205980002",
+            "phone": "08117209888",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 18,
+            "code": "B-13",
+            "name": "Noni Hacintya",
+            "nik": "3324117105010002",
+            "phone": "087882025134",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 19,
+            "code": "B-14",
+            "name": "Krisna Rama Wijaya",
+            "nik": "1871092311010007",
+            "phone": "087890124567",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 20,
+            "code": "C-07",
+            "name": "Sony Hermawan",
+            "nik": "1871126001780003",
+            "phone": "089525697870",
+            "price": "166,000,000",
+            "paid": "  8,000,000 ",
+            "scheme": "KPR",
+            "note": "SP3K BRI"
+        },
+        {
+            "row": 21,
+            "code": "C-10",
+            "name": "Putri Septia Parede",
+            "nik": "3316085609920002",
+            "phone": "085256950195",
+            "price": "166,000,000",
+            "paid": "  135,000,000 ",
+            "scheme": "KPR",
+            "note": "Cash"
+        },
+        {
+            "row": 22,
+            "code": "C-24",
+            "name": "Angel Salsabila",
+            "nik": "1871132457890002",
+            "phone": "082182954852",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 23,
+            "code": "C-27",
+            "name": "Yogi",
+            "nik": "1871012103040002",
+            "phone": "082151131176",
+            "price": "166,000,000",
+            "paid": "  8,000,000 ",
+            "scheme": "KPR",
+            "note": "SP3K BRI"
+        },
+        {
+            "row": 24,
+            "code": "C-28",
+            "name": "Indah",
+            "nik": "1871166070890002",
+            "phone": "081379451424",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 25,
+            "code": "C-32",
+            "name": "Rudi Pratama",
+            "nik": "1871123240980001",
+            "phone": "082177641908",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 26,
+            "code": "C-38",
+            "name": "Nur Hanifah",
+            "nik": "1871040302910005",
+            "phone": "085377329300",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "SP3K"
+        },
+        {
+            "row": 27,
+            "code": "D-01",
+            "name": "Nety Olivia Colin. NG",
+            "nik": "1871011309970004",
+            "phone": "087899204063",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 28,
+            "code": "D-02",
+            "name": "Dwi Yara Zutta Olivia",
+            "nik": "1871050556660007",
+            "phone": "082164527095",
+            "price": "166,000,000",
+            "paid": "  8,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 29,
+            "code": "D-03",
+            "name": "Rizky Pratama",
+            "nik": "1871123459000111",
+            "phone": "082179472176",
+            "price": "166,000,000",
+            "paid": "  8,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 30,
+            "code": "D-04",
+            "name": "Irene Meisuzantis",
+            "nik": "1871093105770002",
+            "phone": "0898207611206",
+            "price": "166,000,000",
+            "paid": "  8,000,000 ",
+            "scheme": "KPR",
+            "note": "SP3K BRI"
+        },
+        {
+            "row": 31,
+            "code": "D-07",
+            "name": "Avnidha Lestari",
+            "nik": "1801064704980003",
+            "phone": "0898207611206",
+            "price": "166,000,000",
+            "paid": "  8,000,000 ",
+            "scheme": "KPR",
+            "note": "SP3K BRI"
+        },
+        {
+            "row": 32,
+            "code": "D-08",
+            "name": "Ana Maria",
+            "nik": "1871156759000025",
+            "phone": "081172708989",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "SP3K BTN"
+        },
+        {
+            "row": 33,
+            "code": "D-09",
+            "name": "Marchell Teja",
+            "nik": "1871050503020003",
+            "phone": "081278904566",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "SP3K BRI"
+        },
+        {
+            "row": 34,
+            "code": "D-14",
+            "name": "Muhsya Julian",
+            "nik": "1801223420780003",
+            "phone": "085215072420",
+            "price": "166,000,000",
+            "paid": "  8,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 35,
+            "code": "D-15",
+            "name": "Pramana",
+            "nik": "1807081411770001",
+            "phone": "081176099917",
+            "price": "166,000,000",
+            "paid": "  8,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 36,
+            "code": "D-17",
+            "name": "Dhony Gunawan",
+            "nik": "1871081907900011",
+            "phone": "081274188666",
+            "price": "166,000,000",
+            "paid": "  8,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 37,
+            "code": "D-18",
+            "name": "Doria Tangga Mustika",
+            "nik": "1807081411770001",
+            "phone": "081274188666",
+            "price": "166,000,000",
+            "paid": "  8,000,000 ",
+            "scheme": "KPR",
+            "note": "SP3K BRI"
+        },
+        {
+            "row": 38,
+            "code": "D-22",
+            "name": "M Hafif Wijaya",
+            "nik": "1871082501960005",
+            "phone": "082143290000",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 39,
+            "code": "D-31",
+            "name": "M Daniell",
+            "nik": "1871073008950005",
+            "phone": "082179472176",
+            "price": "166,000,000",
+            "paid": "  14,000,000 ",
+            "scheme": "KPR",
+            "note": "SP3K BRI"
+        },
+        {
+            "row": 40,
+            "code": "D-36",
+            "name": "Angel Luis Endricke",
+            "nik": "1872046706940001",
+            "phone": "089920405547",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 41,
+            "code": "D-39",
+            "name": "Siti Humairoh",
+            "nik": "1801223420780003",
+            "phone": "085215072420",
+            "price": "166,000,000",
+            "paid": "  8,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 42,
+            "code": "D-41",
+            "name": "Dian Maria Fauzi",
+            "nik": "1810612276890002",
+            "phone": "081278723342",
+            "price": "166,000,000",
+            "paid": "  8,000,000 ",
+            "scheme": "KPR",
+            "note": "SP3K BRI"
+        },
+        {
+            "row": 43,
+            "code": "D-42",
+            "name": "Peni Wahyudi",
+            "nik": "1802071411920005",
+            "phone": "081278723342",
+            "price": "166,000,000",
+            "paid": "  8,000,000 ",
+            "scheme": "KPR",
+            "note": "SP3K BRI"
+        },
+        {
+            "row": 44,
+            "code": "E-01",
+            "name": "Helda Febilioni",
+            "nik": "1871109289960001",
+            "phone": "081172790000",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 45,
+            "code": "E-02",
+            "name": "Tria Yuliarni",
+            "nik": "1801223420780003",
+            "phone": "085215072420",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 46,
+            "code": "E-10",
+            "name": "Yeheskiaw",
+            "nik": "1871044412060001",
+            "phone": "08788368009",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 47,
+            "code": "E-11",
+            "name": "Saypudin",
+            "nik": "1801235604820001",
+            "phone": "089870298080",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 48,
+            "code": "E-12",
+            "name": "Muhammad Reza Singagerda",
+            "nik": "1871022602870007",
+            "phone": "081369128091",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 49,
+            "code": "E-23",
+            "name": "Yuliana Indah Sari",
+            "nik": "1871077300895005",
+            "phone": "081756708976",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 50,
+            "code": "G-02",
+            "name": "Gustriansyah",
+            "nik": "1870987600005640",
+            "phone": "082143217890",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 51,
+            "code": "G-03",
+            "name": "Johan Andesta",
+            "nik": "1871104812770001",
+            "phone": "081245708989",
+            "price": "166,000,000",
+            "paid": "  8,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 52,
+            "code": "G-05",
+            "name": "Dandy",
+            "nik": "1801133101020006",
+            "phone": "0895600688788",
+            "price": "166,000,000",
+            "paid": "  8,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 53,
+            "code": "G-06",
+            "name": "Dandy",
+            "nik": "1871106901040002",
+            "phone": "0895600688788",
+            "price": "166,000,000",
+            "paid": "  8,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 54,
+            "code": "G-07",
+            "name": "Tungki Adiputra Sastranegara",
+            "nik": "1871104812770001",
+            "phone": "0813767680987",
+            "price": "166,000,000",
+            "paid": "  8,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 55,
+            "code": "G-08",
+            "name": "Dandy",
+            "nik": "1871101004210001",
+            "phone": "0823404098769",
+            "price": "166,000,000",
+            "paid": "  8,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 56,
+            "code": "G-26",
+            "name": "Femy Andini",
+            "nik": "1871106901040002",
+            "phone": "081376890000",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 57,
+            "code": "H-01",
+            "name": "Doria Tangga Mustika",
+            "nik": "1871205109690001",
+            "phone": "089870213567",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 58,
+            "code": "H-05",
+            "name": "Ahmad Haikal",
+            "nik": "1807072222830002",
+            "phone": "089673901756",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "SP3K BRI"
+        },
+        {
+            "row": 59,
+            "code": "H-08",
+            "name": "Lerry",
+            "nik": "1871044707830006",
+            "phone": "085768506348",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 60,
+            "code": "H-10",
+            "name": "Enjang Fathurohman",
+            "nik": "3319052303930003",
+            "phone": "081615421775",
+            "price": "166,000,000",
+            "paid": "  8,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 61,
+            "code": "H-11",
+            "name": "Vera Hidayanti",
+            "nik": "1807075110830005",
+            "phone": "085382041000",
+            "price": "166,000,000",
+            "paid": "  8,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 62,
+            "code": "H-12",
+            "name": "Eirin",
+            "nik": "1609145104040002",
+            "phone": "085647785456",
+            "price": "166,000,000",
+            "paid": "  8,000,000 ",
+            "scheme": "KPR",
+            "note": "SP3K BRI"
+        },
+        {
+            "row": 63,
+            "code": "H-13",
+            "name": "Mai Hidayati",
+            "nik": "1871014809780003",
+            "phone": "081389897089",
+            "price": "166,000,000",
+            "paid": "  8,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 64,
+            "code": "H-18",
+            "name": "Fadhlan Wafda",
+            "nik": "1872040205980002",
+            "phone": "081274067779",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "SP3K BRI"
+        },
+        {
+            "row": 65,
+            "code": "H-19",
+            "name": "Hendra",
+            "nik": "1801180201770001",
+            "phone": "081373018820",
+            "price": "166,000,000",
+            "paid": "  8,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 66,
+            "code": "H-20",
+            "name": "Elsa",
+            "nik": "1871094306870007",
+            "phone": "085379177819",
+            "price": "166,000,000",
+            "paid": "  8,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 67,
+            "code": "H-32",
+            "name": "Adinda Septia Dewi",
+            "nik": "3324117105010002",
+            "phone": "081345677897",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 68,
+            "code": "H-33",
+            "name": "Lika Fajar Alief",
+            "nik": "1871031809040003",
+            "phone": "081273421100",
+            "price": "166,000,000",
+            "paid": "  8,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 69,
+            "code": "I-01",
+            "name": "Imam Munandar",
+            "nik": "1871011004870016",
+            "phone": "082172456780",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 70,
+            "code": "I-16",
+            "name": "Ratna Kurniati",
+            "nik": "1871055208880005",
+            "phone": "081769897048",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 71,
+            "code": "J-01",
+            "name": "Rosyadi Ahmad",
+            "nik": "1808010501020002",
+            "phone": "082282870410",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 72,
+            "code": "J-13",
+            "name": "Reza Mahendra",
+            "nik": "1871072012950011",
+            "phone": "0821547680800",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 73,
+            "code": "J-14",
+            "name": "Siti Rohma",
+            "nik": "1809054903940004",
+            "phone": "081780976890",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 74,
+            "code": "J-26",
+            "name": "Diaz Soni Erlangga",
+            "nik": "1871070801040004",
+            "phone": "081172409876",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 75,
+            "code": "J-27",
+            "name": "Fajar Arif Nugraha",
+            "nik": "1871071109960008",
+            "phone": "087900767078",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 76,
+            "code": "K-01",
+            "name": "Laila Noer Indah Sari",
+            "nik": "1871205109690001",
+            "phone": "089870213567",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 77,
+            "code": "K-10",
+            "name": "Toyib Batin",
+            "nik": "1801044106010021",
+            "phone": "089921432111",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 78,
+            "code": "L-01",
+            "name": "Lenny Suratina",
+            "nik": "1872046706940001",
+            "phone": "089920405547",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 79,
+            "code": "L-02",
+            "name": "Adi Kurniawan",
+            "nik": "1871040302910005",
+            "phone": "085377329300",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "SP3K BTN"
+        },
+        {
+            "row": 80,
+            "code": "L-03",
+            "name": "M Anrialdo Pratama",
+            "nik": "1871047007810004",
+            "phone": "085371549088",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "SP3K BTN"
+        },
+        {
+            "row": 81,
+            "code": "L-04",
+            "name": "Ahmad Gilang Arinanda",
+            "nik": "1871051505970005",
+            "phone": "089920407765",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "SP3K BTN"
+        },
+        {
+            "row": 82,
+            "code": "L-05",
+            "name": "Mulyono",
+            "nik": "1871031809040003",
+            "phone": "081273421100",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "SP3K BTN"
+        },
+        {
+            "row": 83,
+            "code": "L-06",
+            "name": "Alian Jaya Negara",
+            "nik": "1871052307840002",
+            "phone": "081279826094",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 84,
+            "code": "L-07",
+            "name": "Yesika Octariani",
+            "nik": "1871115710930005",
+            "phone": "081369989979",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 85,
+            "code": "L-08",
+            "name": "Muhammad Nurdian Sandri",
+            "nik": "1871052506840005",
+            "phone": "081273414040",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 86,
+            "code": "L-09",
+            "name": "Paulus Hartono",
+            "nik": "1801180201770001",
+            "phone": "081373018820",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 87,
+            "code": "L-14",
+            "name": "Angel Fransisca",
+            "nik": "1871091403770008",
+            "phone": "082178690003",
+            "price": "166,000,000",
+            "paid": "  5,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        },
+        {
+            "row": 88,
+            "code": "L-15",
+            "name": "Tulus Maria Manala",
+            "nik": "1871011309970004",
+            "phone": "085321567999",
+            "price": "166,000,000",
+            "paid": "  8,000,000 ",
+            "scheme": "KPR",
+            "note": "Booking Fee"
+        }
+    ]
+}

@@ -40,7 +40,7 @@ class PengajuanHoldController extends Controller
         $permissions = HakAksesController::getUserPermissions();
 
         if ($request->ajax()) {
-            $data = PengajuanHold::with(['marketing', 'lokasi', 'kavling'])->verificationQueue()->get();
+            $data = PengajuanHold::with(['marketing', 'lokasi', 'kavling'])->orderByDesc('tgl_booking')->orderByDesc('id')->get();
 
             return DataTables::of($data)
                 ->addIndexColumn()
@@ -87,12 +87,12 @@ class PengajuanHoldController extends Controller
                     $btn = '<div class="text-start">';
 
                     if ((int) $row->stt_reg === 2) {
-                        $btn .= '<a class="btn btn-outline-primary btn-xs mr-1" href="' . e(route('pengajuan-hold.arsip.detail', $row->id)) . '">Detail</a>';
+                        $btn .= '<a class="btn btn-outline-primary btn-xs mr-1" href="' . e(route('pengajuan-hold.detail', $row->id)) . '">Detail</a>';
                         $btn .= '<a class="btn btn-success btn-xs" target="_blank" rel="noopener" href="' . e(route('pengajuan-hold.cetak', $row->id)) . '"><i class="fas fa-print mr-1"></i>Cetak Tanda Terima</a>';
                     }
 
                     if ($permissions['edit'] && $row->stt_reg != 2) {
-                        $btn .= '<a class="btn btn-primary btn-xs mr-1" href="' . e($verifUrl) . '">Verifikasi</a>';
+                        $btn .= '<a class="btn btn-primary btn-xs mr-1" href="' . e($verifUrl) . '">Lengkapi Data</a>';
                     }
 
                     if ($permissions['hapus'] && $row->stt_reg != 2) {
@@ -128,79 +128,6 @@ class PengajuanHoldController extends Controller
         return view('admin.pengajuan_hold.index', compact('permissions', 'marketing', 'lokasi', 'progres', 'bank'));
     }
 
-    public function viewArsip(Request $request)
-    {
-        $permissions = HakAksesController::getUserPermissions('pengajuan-hold.index');
-
-        if ($request->ajax()) {
-            $data = PengajuanHold::with(['marketing', 'lokasi', 'kavling'])->whereIn('stt_reg', [2, 3])
-                ->orderByDesc('tgl_booking')->orderByDesc('id')->get();
-
-            return DataTables::of($data)
-                ->addIndexColumn()
-                ->addColumn('nama_lengkap', function ($row) {
-                    $nama   = '<strong>' . e($row->nama_lengkap) . '</strong>';
-                    $noTelp = $row->no_telp ? '<br><small class="text-muted">' . e($row->no_telp) . '</small>' : '';
-
-                    return $nama . $noTelp;
-                })
-                ->addColumn('stt_reg', function ($row): string {
-                    switch ($row->stt_reg) {
-                        case 1:
-                            return '<span class="badge bg-warning">Pending</span>';
-                        case 2:
-                            return '<span class="badge bg-success">Disetujui</span>';
-                        case 3:
-                            return '<span class="badge bg-danger">Ditolak</span>';
-                        default:
-                            return '<span class="badge bg-secondary">Unknown</span>';
-                    }
-                })
-
-                ->addColumn('nama_marketing', function ($row) {
-                    return $row->marketing->nama_marketing ?? '-';
-                })
-                ->addColumn('kode_kavling', function ($row) {
-                    $namaLokasi  = '<strong>' . ($row->lokasi->nama_kavling ?? '-') . '</strong>';
-                    $kodeKavling = $row->kavling->kode_kavling ?? '-';
-
-                    return $namaLokasi . '<br>' . $kodeKavling;
-                })
-                ->addColumn('action', function ($row) use ($permissions) {
-                    $verifUrl  = route('pengajuan-hold.arsip.detail', $row->id);
-                    $btn       = '<div class="text-start">';
-                    $btn      .= '<a class="btn btn-primary btn-sm mr-1" href="' . e($verifUrl) . '">Detail</a>';
-                    if ((int) $row->stt_reg === 2) {
-                        $btn .= '<a class="btn btn-success btn-xs" target="_blank" rel="noopener" href="' . e(route('pengajuan-hold.cetak', $row->id)) . '"><i class="fas fa-print mr-1"></i>Cetak Tanda Terima</a>';
-                    }
-                    if ($permissions['hapus']) {
-                        $btn .= '<form action="' . e(route('pengajuan-hold.destroy', $row->id)) . '" method="POST" style="display:inline;">' . csrf_field() . method_field('DELETE') . '<button type="submit" class="delete-button btn btn-danger btn-xs ml-1">Hapus</button></form>';
-                    }
-                    $btn      .= '</div>';
-
-                    return $btn;
-                })
-
-                ->rawColumns([
-                    'nama_marketing',
-                    'nama_lengkap',
-                    'kode_kavling',
-                    'stt_reg',
-                    'action',
-                ])
-                ->make(true);
-        }
-
-        Carbon::setLocale('id');
-
-        $marketing = MarketingOffline::all();
-        $bank      = Bank::all();
-        $progres   = ProgresListPenjualan::all();
-        $lokasi    = LokasiKavling::all();
-
-        return view('admin.pengajuan_hold.arsip', compact('marketing', 'lokasi', 'progres', 'bank'));
-    }
-
     public function cetakTandaTerima($id)
     {
         $booking = PengajuanHold::with(['marketing', 'lokasi', 'kavling', 'metodeBayar'])->findOrFail($id);
@@ -230,7 +157,7 @@ class PengajuanHoldController extends Controller
         return view('admin.pengajuan_hold.print_attachment', compact('data', 'field', 'url', 'isPdf'));
     }
 
-    public function arsipDetail($id, Request $request)
+    public function detail($id, Request $request)
     {
         Carbon::setLocale('id');
 
@@ -395,24 +322,31 @@ class PengajuanHoldController extends Controller
         return view('admin.pengajuan_hold.lampiran', compact('data'));
     }
 
+    public function create(Request $request)
+    {
+        abort_unless(HakAksesController::getUserPermissions('pengajuan-hold.index')['tambah'], 403);
+        $marketing = MarketingOffline::all();
+        $bank = Bank::all();
+        $metodeBayar = MetodeBayar::all();
+        $lokasi = LokasiKavling::all();
+        $tgl = Carbon::now()->locale('id')->translatedFormat('j F Y');
+        return view('admin.pengajuan_hold.create', compact('marketing', 'bank', 'metodeBayar', 'lokasi', 'tgl'));
+    }
+
+    public function store(Request $request)
+    {
+        abort_unless(HakAksesController::getUserPermissions('pengajuan-hold.index')['tambah'], 403);
+        return $this->bookingStore($request, true);
+    }
+
     public function booking(Request $request)
     {
-        Carbon::setLocale('id');
-
-        $marketing = MarketingOffline::all();
-        $bank      = Bank::all();
-        $progres   = ProgresListPenjualan::all();
-        $lokasi    = LokasiKavling::all();
-        $bg        = PengaturanMedia::where('jenis_data', 'Background booking')->first();
-        $tgl = Carbon::now()->translatedFormat('j F Y');
-
-        return view('frontend.booking.index', compact('marketing', 'lokasi', 'progres', 'bank', 'tgl', 'bg'));
+        return redirect()->route('pengajuan-hold.index');
     }
 
     public function bookingSukses()
     {
-        $bg        = PengaturanMedia::where('jenis_data', 'Background booking')->first();
-        return view('frontend.booking.sukses', compact('bg'));
+        return redirect()->route('pengajuan-hold.index');
     }
 
     public function upload(Request $request, $id)
@@ -587,7 +521,7 @@ class PengajuanHoldController extends Controller
         ]);
     }
 
-    public function bookingStore(Request $request)
+    public function bookingStore(Request $request, bool $approve = false)
     {
         $request->merge([
             'booking_fee' => $request->booking_fee ? str_replace('.', '', $request->booking_fee) : 0,
@@ -666,6 +600,15 @@ class PengajuanHoldController extends Controller
             'foto_pemohon.max'          => 'Foto pemohon maksimal 2 MB.',
         ]);
 
+        if ($approve) {
+            $request->validate([
+                'id_bank' => 'required|exists:bank,id',
+                'id_metode_bayar' => 'required|exists:metode_bayar,id',
+                'an_surat_cash' => 'required_if:jenis_pembelian,Pembelian Cash|nullable|string|max:255',
+            ]);
+        }
+        $fileNames = [];
+
         $kavling = KavlingPeta::find($request->id_kavling);
         if ((int) $kavling->id_lokasi !== (int) $request->id_lokasi) {
             return response()->json([
@@ -711,7 +654,7 @@ class PengajuanHoldController extends Controller
 
             $no_registrasi = $this->generateNoRegistrasi();
 
-            PengajuanHold::create([
+            $booking = PengajuanHold::create([
                 'no_registrasi'     => $no_registrasi,
                 'tgl_booking'       => $request->tanggal ?? Carbon::now()->format('Y-m-d'),
                 'nama_lengkap'      => $request->nama_lengkap,
@@ -749,9 +692,17 @@ class PengajuanHoldController extends Controller
                 'file_bukti'        => $fileNames['file_bukti'] ?? null,
                 'file_sppr'         => $fileNames['file_sppr'] ?? null,
                 'foto_pemohon'      => $fileNames['foto_pemohon'] ?? null,
-                'stt_reg'           => 1,
+                'id_bank' => $request->id_bank,
+                'id_metode_bayar' => $request->id_metode_bayar,
+                'an_surat_cash' => $request->an_surat_cash,
+                'stt_reg' => $approve ? 2 : 1,
             ]);
 
+
+            if ($approve) {
+                $booking->load(['kavling', 'lokasi']);
+                $this->completeBooking($booking, $request, $quote);
+            }
 
             DB::commit();
 
@@ -767,6 +718,10 @@ class PengajuanHoldController extends Controller
             ]);
         } catch (\Throwable $e) {
             DB::rollBack();
+            foreach (array_filter($fileNames) as $filename) {
+                File::delete([public_path('assets/booking/' . $filename), public_path('assets/customer/' . $filename), public_path('assets/keuangan/pemasukan/' . $filename)]);
+            }
+
             if ($e instanceof \Illuminate\Validation\ValidationException) {
                 throw $e;
             }
@@ -833,6 +788,58 @@ class PengajuanHoldController extends Controller
         $lastNumber = intval($latest->no_registrasi);
 
         return str_pad($lastNumber + 1, 3, '0', STR_PAD_LEFT);
+    }
+
+    private function completeBooking(PengajuanHold $data, Request $request, array $quote): void
+    {
+                $customer = $this->createCustomer($data->id, $request);
+                $tglNow   = Carbon::now('Asia/Jakarta')->toDateString();
+
+                $rincian = $data->jenis_pembelian === 'KPR'
+                    ? [['nama' => 'Plafon Kredit KPR', 'nilai' => $quote['total_harga']]]
+                    : ($data->rincian_biaya ?? []);
+
+                foreach ($rincian as $item) {
+                    $nama  = $item['nama'] ?? '';
+                    $nilai = (int) ($item['nilai'] ?? 0);
+                    if ($nilai <= 0) continue;
+
+                    $terbayar = 0;
+                    $sisa     = $nilai;
+
+                    Piutang::create([
+                        'id_customer'     => $customer->id,
+                        'id_bank'         => $request->id_bank,
+                        'tanggal_piutang' => $tglNow,
+                        'deskripsi'       => $nama . ' tipe ' . $data->kavling->tipe_bangunan . ' ' . $data->lokasi->nama_kavling . ' Blok ' . $data->kavling->kode_kavling,
+                        'nominal'         => $nilai,
+                        'lampiran'        => '',
+                        'status'          => 1,
+                        'terbayar'        => $terbayar,
+                        'sisa_bayar'      => $sisa,
+                        'tgl_pelunasan'   => null,
+                    ]);
+                }
+
+                $no_kwitansi = $this->generator->generateNomorDokumen(
+                    $data->lokasi,
+                    'no_kwitansi',
+                    Pemasukan::class
+                );
+
+                $p1 = [
+                    'id_bank'               => $request->id_bank,
+                    'id_metode_bayar'       => $request->id_metode_bayar,
+                    'id_customer'           => $customer->id,
+                    'tanggal'               => $data->tgl_booking,
+                    'no_kwitansi'           => $no_kwitansi,
+                    'nominal'               => $data->booking_fee,
+                    'lampiran'              => $data->file_bukti ?? '',
+                    'id_kategori_transaksi' => 1,
+                    'keterangan'            => 'Booking Fee Rumah tipe ' . $data->kavling->tipe_bangunan . ' ' . $data->lokasi->nama_kavling . ' Blok ' . $data->kavling->kode_kavling,
+                ];
+
+                Pemasukan::create($p1);
     }
 
     private function createCustomer($id, $request)
@@ -1127,54 +1134,7 @@ class PengajuanHoldController extends Controller
 
                 $data->update($db);
 
-                $customer = $this->createCustomer($data->id, $request);
-                $tglNow   = Carbon::now('Asia/Jakarta')->toDateString();
-
-                $rincian = $method === 'KPR'
-                    ? [['nama' => 'Plafon Kredit KPR', 'nilai' => $quote['total_harga']]]
-                    : ($data->rincian_biaya ?? []);
-
-                foreach ($rincian as $item) {
-                    $nama  = $item['nama'] ?? '';
-                    $nilai = (int) ($item['nilai'] ?? 0);
-                    if ($nilai <= 0) continue;
-
-                    $terbayar = 0;
-                    $sisa     = $nilai;
-
-                    Piutang::create([
-                        'id_customer'     => $customer->id,
-                        'id_bank'         => $request->id_bank,
-                        'tanggal_piutang' => $tglNow,
-                        'deskripsi'       => $nama . ' tipe ' . $data->kavling->tipe_bangunan . ' ' . $data->lokasi->nama_kavling . ' Blok ' . $data->kavling->kode_kavling,
-                        'nominal'         => $nilai,
-                        'lampiran'        => '',
-                        'status'          => 1,
-                        'terbayar'        => $terbayar,
-                        'sisa_bayar'      => $sisa,
-                        'tgl_pelunasan'   => null,
-                    ]);
-                }
-
-                $no_kwitansi = $this->generator->generateNomorDokumen(
-                    $data->lokasi,
-                    'no_kwitansi',
-                    Pemasukan::class
-                );
-
-                $p1 = [
-                    'id_bank'               => $request->id_bank,
-                    'id_metode_bayar'       => $request->id_metode_bayar,
-                    'id_customer'           => $customer->id,
-                    'tanggal'               => $data->tgl_booking,
-                    'no_kwitansi'           => $no_kwitansi,
-                    'nominal'               => $data->booking_fee,
-                    'lampiran'              => $data->file_bukti ?? '',
-                    'id_kategori_transaksi' => 1,
-                    'keterangan'            => 'Booking Fee Rumah tipe ' . $data->kavling->tipe_bangunan . ' ' . $data->lokasi->nama_kavling . ' Blok ' . $data->kavling->kode_kavling,
-                ];
-
-                Pemasukan::create($p1);
+                $this->completeBooking($data, $request, $quote);
             } else {
                 $db = [
                     'stt_reg' => $request->stt_reg,

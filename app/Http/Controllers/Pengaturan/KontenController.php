@@ -472,6 +472,7 @@ class KontenController extends Controller
         }
 
         $legend = ProgresListPenjualan::whereNotNull('warna')
+            ->whereRaw('LOWER(TRIM(status_progres)) <> ?', ['hold'])
             ->where('warna', '!=', '')
             ->orderBy('urutan', 'asc')
             ->get();

@@ -21,6 +21,7 @@ class SiteplanPenjualanController extends Controller
          $selection = \App\Services\SiteplanSelection::load(['masterSvg', 'kavlingPeta' => fn ($query) => $query->withBookingState(), 'kavlingPeta.customer.progres']);
 
         $legend = ProgresListPenjualan::forColorSettings()->whereNotNull('warna')
+            ->whereRaw('LOWER(TRIM(status_progres)) <> ?', ['hold'])
             ->where('warna', '!=', '')
             ->where('stt_tampil', 1)
             ->orderBy('urutan', 'asc')

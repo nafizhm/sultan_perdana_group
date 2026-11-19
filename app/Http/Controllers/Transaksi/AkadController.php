@@ -133,6 +133,16 @@ class AkadController extends Controller
                 ->get()
                 ->keyBy('id_customer');
 
+            // Historical akad and cash purchases may have no SP3K interview.
+            // Keep registered participants visible without inventing bank records.
+            $registeredCustomers = Customer::with(['kavling', 'lokasi', 'persyaratan'])
+                ->whereIn('id', $akadDetails->keys())
+                ->where(function ($query) {
+                    $query->where('stt_arsip', 0)->orWhereNull('stt_arsip');
+                })
+                ->get();
+            $customers = $customers->concat($registeredCustomers)->unique('id');
+
             if ($filter == 2) {
                 $customers = $customers->filter(function ($customer) use ($akadDetails) {
                     return $akadDetails->has($customer->id);

@@ -36,25 +36,32 @@ class BookingReceiptTest extends TestCase
         PengajuanHold::create(['id' => 2, 'stt_reg' => 1, 'tgl_booking' => '2026-10-19']);
         PengajuanHold::create(['id' => 3, 'stt_reg' => 3, 'tgl_booking' => '2026-10-22']);
         Route::get('/_test/bookings', [PengajuanHoldController::class, 'index'])->name('_test.bookings');
-        Route::get('/_test/bookings-archive', [PengajuanHoldController::class, 'viewArsip']);
         Route::get('/_test/bookings/{id}/receipt', [PengajuanHoldController::class, 'cetakTandaTerima']);
     }
 
-    public function test_queue_only_contains_pending_bookings(): void
+    public function test_booking_list_includes_all_statuses(): void
     {
         $this->assertSame([2], PengajuanHold::verificationQueue()->pluck('id')->all());
         $response = $this->getJson('/_test/bookings', ['X-Requested-With' => 'XMLHttpRequest'])->assertOk();
-        $this->assertSame([2], array_column($response->json('data'), 'id'));
+        $this->assertSame([3, 1, 2], array_column($response->json('data'), 'id'));
         $this->assertStringNotContainsString('Cetak Tanda Terima', $response->json('data.0.action'));
-        $this->assertSame('booking-pending', $response->json('data.0.DT_RowClass'));
+        $this->assertSame('booking-pending', $response->json('data.2.DT_RowClass'));
     }
 
-    public function test_archive_contains_completed_verifications_and_approved_receipt_action(): void
+    public function test_booking_list_has_detail_and_receipt_for_completed_bookings(): void
     {
-        $response = $this->getJson('/_test/bookings-archive', ['X-Requested-With' => 'XMLHttpRequest'])->assertOk();
-        $this->assertSame([3, 1], array_column($response->json('data'), 'id'));
+        $response = $this->getJson('/_test/bookings', ['X-Requested-With' => 'XMLHttpRequest'])->assertOk();
+        $this->assertSame([3, 1, 2], array_column($response->json('data'), 'id'));
         $this->assertStringNotContainsString('Cetak Tanda Terima', $response->json('data.0.action'));
         $this->assertStringContainsString('Cetak Tanda Terima', $response->json('data.1.action'));
+    }
+
+    public function test_booking_entry_points_require_admin_login(): void
+    {
+        $this->get('/booking')->assertRedirect('/admin/pengajuan-hold');
+        $this->get('/admin/pengajuan-hold/create')->assertRedirect(route('login'));
+        $this->post('/admin/pengajuan-hold', [])->assertRedirect(route('login'));
+        $this->post('/booking/store', [])->assertNotFound();
     }
 
     public function test_pending_and_rejected_cannot_print_receipts(): void

@@ -97,8 +97,8 @@ Route::get('/', function () {
     return redirect()->route('login');
 });
 
-Route::get('/booking', [PengajuanHoldController::class, 'booking'])->name('booking');
-Route::get('/booking-sukses', [PengajuanHoldController::class, 'bookingSukses'])->name('booking.sukses');
+Route::redirect('/booking', '/admin/pengajuan-hold')->name('booking');
+Route::redirect('/booking-sukses', '/admin/pengajuan-hold')->name('booking.sukses');
 Route::get('siteplan', [PublicSiteplanController::class, 'index'])->name('public.siteplan.index');
 Route::get('siteplan/detail/{id}', [PublicSiteplanController::class, 'show'])->name('public.siteplan.show');
 
@@ -106,7 +106,7 @@ Route::get('/get-kavling-hold/{id_lokasi}', [PengajuanHoldController::class, 'ge
 Route::get('/get-harga-kavling-hold/{id_kavling}', [PengajuanHoldController::class, 'getHargaKavlingHold'])->name('pengajuan-hold.getHargaKavling');
 Route::get('/get-kavling/{id_lokasi}', [PengajuanHoldController::class, 'getKavling'])->name('booking.getKavling');
 Route::get('/get-harga-kavling/{id_kavling}', [PengajuanHoldController::class, 'getHargaKavling'])->name('booking.getHargaKavling');
-Route::post('booking/store', [PengajuanHoldController::class, 'bookingStore'])->name('store.booking');
+
 Route::get('/homepage', [KontenController::class, 'homepage'])->name('homepage');
 Route::get('/agents', [KontenController::class, 'marketing'])->name('marketing');
 Route::get('/aboutus', [KontenController::class, 'aboutus'])->name('aboutus');
@@ -167,12 +167,12 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::prefix('admin')->group(function () {
-        Route::get('/pengajuan-hold/arsip', [PengajuanHoldController::class, 'viewArsip'])->name('pengajuan-hold.arsip');
+        Route::redirect('/pengajuan-hold/arsip', '/admin/pengajuan-hold');
         Route::post('/pengajuan-hold/{id}/upload', [PengajuanHoldController::class, 'upload'])->name('pengajuan-hold.upload');
         Route::post('/pengajuan-hold/{id}/delete-file', [PengajuanHoldController::class, 'deleteFile'])->name('pengajuan-hold.delete-file');
         Route::get('/pengajuan-hold/{id}/verifikasi', [PengajuanHoldController::class, 'verifikasi'])->name('pengajuan-hold.verifikasi');
         Route::post('/pengajuan-hold/{id}/verifikasi', [PengajuanHoldController::class, 'simpanVerifikasi'])->name('pengajuan-hold.verifikasi.simpan');
-        Route::get('/pengajuan-hold/{id}/arsip-detail', [PengajuanHoldController::class, 'arsipDetail'])->name('pengajuan-hold.arsip.detail');
+        Route::get('/pengajuan-hold/{id}/detail', [PengajuanHoldController::class, 'detail'])->name('pengajuan-hold.detail');
         Route::get('/pengajuan-hold/{id}/lampiran/{field}/{action}', [PengajuanHoldController::class, 'attachment'])->where('action', 'download|print')->name('pengajuan-hold.attachment');
         Route::get('/pengajuan-hold/{id}/cetak', [PengajuanHoldController::class, 'cetakTandaTerima'])->name('pengajuan-hold.cetak');
         Route::resource('pengajuan-hold', PengajuanHoldController::class);

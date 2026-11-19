@@ -426,7 +426,7 @@
                                 @endif
 
                                 <div class="modal-footer text-center">
-                                    <a href="{{ route('pengajuan-hold.arsip') }}" class="btn btn-danger">Kembali</a>
+                                    <a href="{{ route('pengajuan-hold.index') }}" class="btn btn-danger">Kembali</a>
                                 </div>
                             </div>
                         </div>

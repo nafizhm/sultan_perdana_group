@@ -26,10 +26,12 @@
                         <div class="card">
                             <div class="card-header p-3">
                                 <div class="d-flex align-content-center justify-content-between">
-                                    <h3 class="font-weight-bold text-lg">Data Pengajuan Hold</h3>
-                                    <a href="{{ route('pengajuan-hold.arsip') }}" class="btn btn-secondary">
-                                        <i class="fas fa-archive mr-1" aria-hidden="true"></i>Arsip
+                                    <h3 class="font-weight-bold text-lg">Data Booking</h3>
+                                    @if ($permissions['tambah'])
+                                    <a href="{{ route('pengajuan-hold.create') }}" class="btn btn-primary">
+                                        <i class="fas fa-plus mr-1"></i>Tambah Booking
                                     </a>
+                                    @endif
                                 </div>
                             </div>
                             <div class="card-body">

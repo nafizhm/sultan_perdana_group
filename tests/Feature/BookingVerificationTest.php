@@ -246,6 +246,26 @@ class BookingVerificationTest extends TestCase
         $this->assertFalse(\App\Models\KavlingPeta::findOrFail(1)->is_booked);
     }
 
+    public function test_admin_booking_immediately_creates_customer_and_payment(): void
+    {
+        $payload = $this->prepareApproval();
+        $payload['alamat_domisili'] = 'Alamat domisili';
+        $payload['status_pernikahan'] = 'Belum Menikah';
+        $payload['total_harga'] = 120000000;
+        PengajuanHold::findOrFail(1)->delete();
+        Route::post('/_test/admin-booking', function (\Illuminate\Http\Request $request) {
+            return app(PengajuanHoldController::class)->bookingStore($request, true);
+        });
+        $this->mock(\App\Http\Controllers\GenerateNumberController::class)
+            ->shouldReceive('generateNomorDokumen')->once()->andReturn('TEST-ADMIN-001');
+        $this->post('/_test/admin-booking', $payload, ['Accept' => 'application/json'])->assertOk();
+        $this->assertDatabaseHas('pengajuan_hold', ['stt_reg' => 2, 'id_bank' => 1, 'id_metode_bayar' => 1]);
+        $this->assertDatabaseCount('customer', 1);
+        $this->assertDatabaseHas('pemasukan', ['nominal' => 1500000]);
+        $this->assertDatabaseHas('piutang', ['nominal' => 120000000]);
+        $this->assertFalse(\App\Models\KavlingPeta::whereKey(1)->available()->exists());
+    }
+
     public function test_failed_approval_keeps_original_data_and_attachment(): void
     {
         $payload = $this->prepareApproval();

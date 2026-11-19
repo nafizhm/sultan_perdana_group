@@ -26,6 +26,7 @@ class PublicSiteplanController extends Controller
         ]);
 
         $legend = ProgresListPenjualan::forColorSettings()->whereNotNull('warna')
+            ->whereRaw('LOWER(TRIM(status_progres)) <> ?', ['hold'])
             ->where('warna', '!=', '')
             ->where('stt_tampil', 1)
             ->orderBy('urutan', 'asc')
